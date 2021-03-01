@@ -1,5 +1,5 @@
 # BSI-MapMap
-Ein Tool zum Mappen von NIS auf BSI-100 auf BSI-200
+Ein Tool zum Mappen von BSI-100 Maßnahmen auf BSI-200 basierend auf der offiziellen BSI Migrationstabellen.
 
 
 Insbesondere mappt der Code die BSI-100 Maßnahmen der Kategorien 1-9 des österreichischen NIS Fact Sheets 2018 auf die entsprechenden BSI-200 Kapitel basierend auf der offiziellen BSI Migrationstabellen.
@@ -17,9 +17,12 @@ Folgende NIS Kategorien werden gemappt:
 9. 	Vorfallsreaktion
 
 Ausgangsbasis:
-NIS Fact Sheet 2018 mit Mapping-Tabelle auf BSI-100: https://www.nis.gv.at/NIS_Fact_Sheet_2018_08_3_0.pdf
 
 BSI Migrationstabellen: https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/Kompendium/Migrationstabellen.html
+
+NIS:
+NIS Fact Sheet 2018 mit Mapping-Tabelle auf BSI-100: https://www.nis.gv.at/NIS_Fact_Sheet_2018_08_3_0.pdf
+
 
 ## XLSX_to_csv.sh
 
