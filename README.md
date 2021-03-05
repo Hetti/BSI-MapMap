@@ -1,8 +1,8 @@
 # BSI-MapMap
-Ein Tool zum Mappen von BSI-100 Maßnahmen auf BSI-200 basierend auf der offiziellen BSI Migrationstabellen.
+Ein Tool zum Mappen von BSI-100 Maßnahmen auf BSI-200 basierend auf den offiziellen BSI Migrationstabellen.
 
 
-Insbesondere mappt der Code die BSI-100 Maßnahmen der Kategorien 1-9 des österreichischen NIS Fact Sheets 2018 auf die entsprechenden BSI-200 Kapitel basierend auf der offiziellen BSI Migrationstabellen.
+Insbesondere mappt der Code die BSI-100 Maßnahmen der Kategorien 1-9 des österreichischen NIS Fact Sheets 2018 auf die entsprechenden BSI-200 Kapitel basierend auf den offiziellen BSI Migrationstabellen.
 
 Folgende NIS Kategorien werden gemappt:
 
@@ -39,3 +39,13 @@ Shellscript das alle xlsx Tabellen in CSV Dateien konvertiert.
 Durchsucht alle CSV Versionen der Migrationstabellen nach den jeweiligen BSI-100 Kurzschreibweisen und gibt alle Entsprechenden neuen Bezeichnungen nach BSI-200 zurück.
 
 Die gewünschten BSI-100 Kurzschreibweisen der Maßnahmen müssen händisch gwählt bzw. aus der Mapping Tabelle extrahiert werden.
+
+
+# DISCLAIMER
+
+Ich gebe keine Garantie auf die Vollständigkeit und Korrektheit dieser Software und den daraus entstehenden Outputs.
+
+Die Nutzung dieser Software passiert auf eigene Verantwortung.
+
+
+Pull Requests werden gerne entgegen genommen und werden auf Basis der GPLv3 eingepflegt.
