@@ -2,7 +2,7 @@
 Ein Tool zum Mappen von BSI-100 Maßnahmen auf BSI-200 basierend auf der offiziellen BSI Migrationstabellen.
 
 
-Insbesondere mappt der Code die BSI-100 Maßnahmen der Kategorien 1-9 des österreichischen NIS Fact Sheets 2018 auf die entsprechenden BSI-200 Kapitel basierend auf der offiziellen BSI Migrationstabellen.
+Insbesondere mappt der Code die BSI-100 Maßnahmen der Kategorien 1-9 des österreichischen NIS Fact Sheets 2018 auf die entsprechenden BSI-200 Kapitel basierend auf den offiziellen BSI Migrationstabellen.
 
 Folgende NIS Kategorien werden gemappt:
 
