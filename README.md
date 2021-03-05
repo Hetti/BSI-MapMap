@@ -20,9 +20,15 @@ Ausgangsbasis:
 
 BSI Migrationstabellen: https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Grundschutz/Kompendium/Migrationstabellen.html
 
-NIS:
+NIS:  
 NIS Fact Sheet 2018 mit Mapping-Tabelle auf BSI-100: https://www.nis.gv.at/NIS_Fact_Sheet_2018_08_3_0.pdf
 
+
+## Prerequisites
+
+ * Für das XLSX Script zum Konvertieren der Excel Tabellen nach CSV: https://github.com/dilshod/xlsx2csv
+ * Bash
+ * Python 3
 
 ## XLSX_to_csv.sh
 
