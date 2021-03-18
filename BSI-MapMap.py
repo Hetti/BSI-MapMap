@@ -3,8 +3,19 @@
 
 import os
 import csv
+import re
 
 mappingsign = "x"
+full_mapping = []
+
+# function found at https://blog.finxter.com/how-to-sort-a-list-alphabetically-in-python/
+# which points to https://stackoverflow.com/a/2669120
+def sorted_nicely(l): 
+    """ Sort the given iterable in the way that humans expect.""" 
+    convert = lambda text: int(text) if text.isdigit() else text 
+    alphanum_key = lambda key: [convert(c) for c in re.split('([0-9]+)', key)] 
+    l.sort(key = alphanum_key)
+
 
 # CSV Parsing: https://docs.python.org/3/library/csv.html
 
@@ -29,6 +40,7 @@ def getmapping(filelist, mapvalue):
                         if lists[indexval] == mappingsign:
                             print(lists[0])
                             result.append(lists[0])
+                            full_mapping.append(lists[0])
                     except:
                         continue
 
@@ -103,6 +115,7 @@ for root, dirs, files in os.walk(path):
 
 Kategorienum = 1
 for Subkategorie in Kategorien:
+    full_mapping = []
     kategoriegesamt = []
     print(
         f"""\n\n===========================
@@ -114,8 +127,9 @@ for Subkategorie in Kategorien:
         #print(Element)
         mapped = getmapping(CSV_Tabellen, Element)
         kategoriegesamt.append(mapped)
-
-    print(f"Kapitel {Kategorienum} Resultat: " + str(kategoriegesamt) + "\n")
+    
+    print("========= RESULTAT =========\n")
+    #print(f"Kapitel {Kategorienum} Resultat: " + str(kategoriegesamt) + "\n")
     empty = "|"
     for x in range(0, len(Subkategorie)):
         if not kategoriegesamt[x]:
@@ -123,4 +137,8 @@ for Subkategorie in Kategorien:
         else:
             print(f"Maßnahme {Subkategorie[x]} Mapping: {kategoriegesamt[x]}\n")
     print("Kein Mapping für: " + empty)
+    #full_mapping.sort()
+    full_mapping = list(set(full_mapping))
+    sorted_nicely(full_mapping)
+    print(f"\nFull unique Mapping sortiert für Kategorie {Kategorienum}:\n" + str(full_mapping))
     Kategorienum += 1
