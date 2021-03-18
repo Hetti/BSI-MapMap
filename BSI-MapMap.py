@@ -140,5 +140,7 @@ for Subkategorie in Kategorien:
     #full_mapping.sort()
     full_mapping = list(set(full_mapping))
     sorted_nicely(full_mapping)
-    print(f"\nFull unique Mapping sortiert für Kategorie {Kategorienum}:\n" + str(full_mapping))
+    print(f"\nFull unique Mapping sortiert für Kategorie {Kategorienum}:\n")
+    for chap in full_mapping:
+        print(f"- {chap}")
     Kategorienum += 1
