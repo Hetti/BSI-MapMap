@@ -4,9 +4,11 @@
 import os
 import csv
 import re
+import pdftotext
 
 mappingsign = "x"
 full_mapping = []
+
 
 # function found at https://blog.finxter.com/how-to-sort-a-list-alphabetically-in-python/
 # which points to https://stackoverflow.com/a/2669120
@@ -18,7 +20,6 @@ def sorted_nicely(l):
 
 
 # CSV Parsing: https://docs.python.org/3/library/csv.html
-
 def getmapping(filelist, mapvalue):
 
     result = []
@@ -46,6 +47,26 @@ def getmapping(filelist, mapvalue):
 
     print(f"\nGefundene Mappings für {mapvalue}: " + str(result) + "\n")
     return result
+
+
+def genTXT(mappinglist, KapNum):
+    pages = []
+
+    # Regex: <KAP>[\s\S]*?(?=\n\n)
+    
+    with open("IT_Grundschutz_Kompendium_Edition2021.pdf", "rb") as f:
+        pdf = pdftotext.PDF(f)
+        for kat in mappinglist:
+            for page in pdf:
+                    regexmagic = re.findall(f'{kat}[\s\S]*?(?=\n\n)',page)
+                    if regexmagic:
+                        pages.append(regexmagic[0])
+                        break
+
+    outfile = open(f'Kategorie-{KapNum}-BSI200.txt', 'w')
+    for kap in pages:
+        outfile.writelines(str(kap)+"\n\n")
+    outfile.close()
 
 
 Kategorie_1 = ["M 2.10", "M 2.163", "M 2.205", "M 2.217", "M 2.236", "M 2.337", "M 2.340", "M 2.550",
@@ -104,6 +125,7 @@ Kategorie_9 = ["B 1.6", "B 1.8", "M 2.154", "M 2.35", "M 2.9", "M 3.6", "M 6.121
 Kategorien = [Kategorie_1, Kategorie_2, Kategorie_3, Kategorie_4,
               Kategorie_5, Kategorie_6, Kategorie_7, Kategorie_8, Kategorie_9]
 
+
 # Example for all files in folder used from https://pythonguides.com/python-get-all-files-in-directory/#Python_get_all_files_in_directory
 
 path = "./Migrationstabellen_CSV"
@@ -137,10 +159,11 @@ for Subkategorie in Kategorien:
         else:
             print(f"Maßnahme {Subkategorie[x]} Mapping: {kategoriegesamt[x]}\n")
     print("Kein Mapping für: " + empty)
-    #full_mapping.sort()
     full_mapping = list(set(full_mapping))
     sorted_nicely(full_mapping)
     print(f"\nFull unique Mapping sortiert für Kategorie {Kategorienum}:\n")
     for chap in full_mapping:
         print(f"- {chap}")
+    
+    genTXT(full_mapping, Kategorienum)
     Kategorienum += 1

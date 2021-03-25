@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # Konvertiere alle XLSX zu CSV um sie durchsuchbar zu machen
-# Muss im Ordner ausgführt werden wo die Migrationstabellen Ordner vorhandne ist aus dem ZIP
-
-
+# Muss im Ordner ausgeführt werden wo die Migrationstabellen Ordner vorhanden ist aus dem ZIP
 
 mkdir Migrationstabellen_CSV
 
@@ -22,6 +20,8 @@ done
 # 2 Files sind nicht mit dem xlsx2csv2 Tool konvertierbar, da sie ODS Files sind.
 # - OPS.2.2_Cloud-Nutzung.ods
 # - MT_Datenträgerarchiv.ods
+
+# Vorerst bitte händisch mittels Calc oder Excel zu einer CSV konvertieren.
 
 # TODO Diese zwei ODS Dateien in CSV konvertieren - Vielleicht mache ich das im Python File
 
